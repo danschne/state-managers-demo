@@ -18,9 +18,12 @@ function App() {
         >
           Learn React
         </a>
+
       </header>
     </div>
   );
 }
+
+function foo() {}
 
 export default App;
