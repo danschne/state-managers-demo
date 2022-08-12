@@ -18,10 +18,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "lint": "eslint src --ext .tsx,.ts --fix",
+    "lint": "eslint src --ext .tsx,.ts",
+    "fixLinting": "eslint src --ext .tsx,.ts --fix",
+    "checkFormatting": "prettier src --check --ignore-unknown",
     "format": "prettier src --write --ignore-unknown",
-    "test": "react-scripts test",
     "testOnce": "react-scripts test --watchAll=false",
+    "test": "react-scripts test",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "postinstall": "husky install"
