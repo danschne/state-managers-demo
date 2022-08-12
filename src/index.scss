@@ -1,5 +1,6 @@
+@use "./constants.scss" as *;
 @import "~antd/dist/antd.css";
 
 body {
-  background-color: #1e1e1e;
+  background-color: $background-primary;
 }

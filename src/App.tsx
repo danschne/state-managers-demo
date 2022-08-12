@@ -1,16 +1,19 @@
-import { Button, Space } from "antd";
-import { CheckCircleTwoTone } from "@ant-design/icons";
+import { Layout } from "antd";
+import ContentPane from "./layout/ContentPane/ContentPane";
+import NavigationBar from "./layout/NavigationBar/NavigationBar";
 import styles from "./App.module.scss";
+
+const { Header, Content } = Layout;
 
 export default function App() {
   return (
-    <div className={styles.container}>
-      <Space>
-        <Button type="primary" shape="round" size="large">
-          Let&apos;s go!
-        </Button>
-        <CheckCircleTwoTone twoToneColor="#52c41a" className={styles.icon} />
-      </Space>
-    </div>
+    <Layout>
+      <Header className={styles.header}>
+        <NavigationBar />
+      </Header>
+      <Content>
+        <ContentPane />
+      </Content>
+    </Layout>
   );
 }
