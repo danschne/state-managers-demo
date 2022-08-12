@@ -48,6 +48,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.21.0"],\
             ["eslint-plugin-react", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.30.1"],\
             ["husky", "npm:8.0.1"],\
+            ["identity-obj-proxy", "npm:3.0.0"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:18.2.0"],\
@@ -16689,6 +16690,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:8.21.0"],\
             ["eslint-plugin-react", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.30.1"],\
             ["husky", "npm:8.0.1"],\
+            ["identity-obj-proxy", "npm:3.0.0"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:18.2.0"],\
