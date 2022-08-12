@@ -24,6 +24,4 @@ function App() {
   );
 }
 
-function foo() {}
-
 export default App;
