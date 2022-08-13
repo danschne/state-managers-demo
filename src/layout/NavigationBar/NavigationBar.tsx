@@ -2,6 +2,8 @@ import { Col, Menu, Row } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./NavigationBar.module.scss";
 
+export const LOGO = "🕺💃❤🎓";
+
 interface MenuEntry {
   path: string;
   label: string;
@@ -37,10 +39,9 @@ export default function NavigationBar() {
   const { pathname } = useLocation();
   const navigateTo = useNavigate();
 
-  // TODO: increase font size of emojis?
   return (
     <Row>
-      <Col>🕺💃❤🎓</Col>
+      <Col className={styles.logo}>{LOGO}</Col>
       <Col flex="auto">
         <Menu
           items={ITEMS}
