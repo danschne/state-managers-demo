@@ -1,21 +1,50 @@
 import { Menu } from "antd";
-import { ItemType } from "antd/lib/menu/hooks/useItems";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./NavigationBar.module.scss";
 
-const items: ItemType[] = [
-  { key: "item1", label: "Item 1" },
-  { key: "item2", label: "Item 2" },
-  { key: "item3", label: "Item 3" },
+interface MenuEntry {
+  path: string;
+  label: string;
+  content: JSX.Element;
+}
+
+export const MENU_ENTRIES: MenuEntry[] = [
+  {
+    path: "/option1",
+    label: "Option 1",
+    content: <>Content 1</>,
+  },
+  {
+    path: "/option2",
+    label: "Option 2",
+    content: <>Content 2</>,
+  },
+  {
+    path: "/option3",
+    label: "Option 3",
+    content: <>Content 3</>,
+  },
 ];
 
+const ITEMS = MENU_ENTRIES.map((entry) => {
+  return {
+    key: entry.path,
+    label: entry.label,
+  };
+});
+
 export default function NavigationBar() {
+  const { pathname } = useLocation();
+  const navigateTo = useNavigate();
+
   return (
     <Menu
-      items={items}
+      items={ITEMS}
       mode="horizontal"
       theme="dark"
-      defaultSelectedKeys={["item1"]}
+      selectedKeys={[pathname]}
       className={styles.menu}
+      onSelect={({ key }) => navigateTo(key)}
     />
   );
 }
