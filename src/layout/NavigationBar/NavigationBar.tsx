@@ -1,4 +1,4 @@
-import { Menu } from "antd";
+import { Col, Menu, Row } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./NavigationBar.module.scss";
 
@@ -37,14 +37,20 @@ export default function NavigationBar() {
   const { pathname } = useLocation();
   const navigateTo = useNavigate();
 
+  // TODO: increase font size of emojis?
   return (
-    <Menu
-      items={ITEMS}
-      mode="horizontal"
-      theme="dark"
-      selectedKeys={[pathname]}
-      className={styles.menu}
-      onSelect={({ key }) => navigateTo(key)}
-    />
+    <Row>
+      <Col>🕺💃❤🎓</Col>
+      <Col flex="auto">
+        <Menu
+          items={ITEMS}
+          mode="horizontal"
+          theme="dark"
+          selectedKeys={[pathname]}
+          className={styles.menu}
+          onSelect={({ key }) => navigateTo(key)}
+        />
+      </Col>
+    </Row>
   );
 }
