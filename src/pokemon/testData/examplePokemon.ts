@@ -1,5 +1,5 @@
 import { Pokemon } from "../models/pokemon";
-import { doubleKick, tackle } from "./exampleMoves";
+import { tackle, thunderShock, waterGun } from "./exampleMoves";
 import { hp } from "./exampleStats";
 
 export const pikachu: Pokemon = {
@@ -14,5 +14,20 @@ export const pikachu: Pokemon = {
       stat: hp,
     },
   ],
-  moves: [tackle, doubleKick],
+  moves: [tackle, thunderShock],
+};
+
+export const squirtle: Pokemon = {
+  id: 2,
+  name: "squirtle",
+  sprites: {
+    front_default: "/sprites/squirtle/front_default",
+  },
+  stats: [
+    {
+      base_stat: 46,
+      stat: hp,
+    },
+  ],
+  moves: [tackle, waterGun],
 };

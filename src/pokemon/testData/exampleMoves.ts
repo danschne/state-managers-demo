@@ -6,8 +6,14 @@ export const tackle: Move = {
   power: 10,
 };
 
-export const doubleKick: Move = {
-  id: 1,
-  name: "double-kick",
-  power: 20,
+export const thunderShock: Move = {
+  id: 2,
+  name: "thunder shock",
+  power: 15,
+};
+
+export const waterGun: Move = {
+  id: 3,
+  name: "water gun",
+  power: 13,
 };
