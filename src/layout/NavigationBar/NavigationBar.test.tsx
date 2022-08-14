@@ -1,7 +1,7 @@
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
-import NavigationBar, { MENU_ENTRIES } from "./NavigationBar";
+import { NavigationBar, MENU_ENTRIES } from "./NavigationBar";
 
 const mockNavigate = jest.fn();
 

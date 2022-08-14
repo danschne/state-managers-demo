@@ -1,9 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import AppLayout from "./layout/AppLayout/AppLayout";
+import { AppLayout } from "./layout/AppLayout/AppLayout";
 import { MENU_ENTRIES } from "./layout/NavigationBar/NavigationBar";
-import Placeholder from "./layout/Placeholder/Placeholder";
+import { Placeholder } from "./layout/Placeholder/Placeholder";
 
-export default function App() {
+export function App() {
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>

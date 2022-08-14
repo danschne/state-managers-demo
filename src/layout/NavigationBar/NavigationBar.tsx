@@ -1,6 +1,6 @@
 import { Col, Menu, Row } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
-import Placeholder from "../Placeholder/Placeholder";
+import { Placeholder } from "../Placeholder/Placeholder";
 import styles from "./NavigationBar.module.scss";
 
 const LOGO = "🕺💃❤🎓";
@@ -36,7 +36,7 @@ const ITEMS = MENU_ENTRIES.map((entry) => {
   };
 });
 
-export default function NavigationBar() {
+export function NavigationBar() {
   const { pathname } = useLocation();
   const navigateTo = useNavigate();
 

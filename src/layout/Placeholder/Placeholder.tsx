@@ -7,7 +7,7 @@ interface PlaceholderProperties {
   text: string;
 }
 
-export default function Placeholder({ text }: PlaceholderProperties) {
+export function Placeholder({ text }: PlaceholderProperties) {
   return (
     <div className={styles.container}>
       <Title className={styles.text}>{text}</Title>

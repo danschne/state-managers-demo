@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
-import App from "./App";
+import { App } from "./App";
 import { MENU_ENTRIES } from "./layout/NavigationBar/NavigationBar";
 
 describe("App", () => {
