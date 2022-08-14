@@ -44,3 +44,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Project Ideas
+
+- PokeAPI: very simple fight between two Pokemons (choose the next attack)
+- TheMovieDB API: some kind of movie facts quiz (how to include a bit of state management?)
+- Genius API: some kind of song quiz (how to include a bit of state management?)
