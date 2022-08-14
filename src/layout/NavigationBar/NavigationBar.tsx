@@ -2,7 +2,7 @@ import { Col, Menu, Row } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./NavigationBar.module.scss";
 
-export const LOGO = "🕺💃❤🎓";
+const LOGO = "🕺💃❤🎓";
 
 interface MenuEntry {
   path: string;
