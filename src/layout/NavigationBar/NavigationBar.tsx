@@ -1,5 +1,6 @@
 import { Col, Menu, Row } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import { PokemonCard } from "../../pokemon/components/PokemonCard/PokemonCard";
 import { Placeholder } from "../Placeholder/Placeholder";
 import styles from "./NavigationBar.module.scss";
 
@@ -15,7 +16,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
   {
     path: "/option1",
     label: "Option 1",
-    content: <Placeholder text="Content 1" />,
+    content: <PokemonCard />,
   },
   {
     path: "/option2",
