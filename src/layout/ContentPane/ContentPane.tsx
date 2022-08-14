@@ -1,7 +1,6 @@
 import { PropsWithChildren } from "react";
+import styles from "./ContentPane.module.scss";
 
-// not sure yet, if this component is really necessary
-// TODO: check back after implementing 100vh layout, etc.
 export default function ContentPane({ children }: PropsWithChildren) {
-  return <>{children}</>;
+  return <div className={styles.container}>{children}</div>;
 }

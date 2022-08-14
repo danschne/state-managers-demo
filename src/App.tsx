@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./layout/AppLayout/AppLayout";
 import { MENU_ENTRIES } from "./layout/NavigationBar/NavigationBar";
+import Placeholder from "./layout/Placeholder/Placeholder";
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
         {MENU_ENTRIES.map(({ path, content }) => (
           <Route key={path} path={path} element={content} />
         ))}
-        <Route path="*" element={<>404</>} />
+        <Route path="*" element={<Placeholder text="404" />} />
       </Route>
     </Routes>
   );

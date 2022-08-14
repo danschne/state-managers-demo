@@ -8,11 +8,11 @@ const { Header, Content } = Layout;
 
 export default function AppLayout() {
   return (
-    <Layout>
+    <Layout className={styles.layout}>
       <Header className={styles.header}>
         <NavigationBar />
       </Header>
-      <Content>
+      <Content className={styles.content}>
         <ContentPane>
           <Outlet />
         </ContentPane>

@@ -1,5 +1,6 @@
 import { Col, Menu, Row } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import Placeholder from "../Placeholder/Placeholder";
 import styles from "./NavigationBar.module.scss";
 
 const LOGO = "🕺💃❤🎓";
@@ -14,17 +15,17 @@ export const MENU_ENTRIES: MenuEntry[] = [
   {
     path: "/option1",
     label: "Option 1",
-    content: <>Content 1</>,
+    content: <Placeholder text="Content 1" />,
   },
   {
     path: "/option2",
     label: "Option 2",
-    content: <>Content 2</>,
+    content: <Placeholder text="Content 2" />,
   },
   {
     path: "/option3",
     label: "Option 3",
-    content: <>Content 3</>,
+    content: <Placeholder text="Content 3" />,
   },
 ];
 

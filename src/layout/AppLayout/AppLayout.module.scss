@@ -1,5 +1,15 @@
 @use "../../constants.scss" as *;
 
+.layout {
+  height: 100vh;
+  background-color: black;
+}
+
 .header {
   background-color: $background-secondary;
+}
+
+.content {
+  margin: 50px;
+  background-color: $background-primary;
 }
