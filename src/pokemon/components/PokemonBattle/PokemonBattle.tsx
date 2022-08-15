@@ -9,8 +9,12 @@ export function PokemonBattle() {
   const [pokemon2, setPokemon2] = usePokemon();
 
   useEffect(() => {
-    setPokemon1(getPokemon("pikachu"));
-    setPokemon2(getPokemon("squirtle"));
+    async function fetchPokemon() {
+      setPokemon1(await getPokemon("pikachu"));
+      setPokemon2(await getPokemon("squirtle"));
+    }
+
+    fetchPokemon();
   }, []);
 
   return (
