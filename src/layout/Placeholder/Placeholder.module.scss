@@ -1,14 +1,14 @@
-@use "../../constants.scss" as *;
+@use '../../constants.scss' as *;
 
 .container {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .text {
-  font-size: 150px !important;
-  color: $text-primary !important;
-  text-align: center;
+	font-size: 150px !important;
+	color: $text-primary !important;
+	text-align: center;
 }

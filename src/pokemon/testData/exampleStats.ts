@@ -1,6 +1,6 @@
-import { Stat } from "../models/stat";
+import { Stat } from '../models/stat'
 
 export const hp: Stat = {
-  id: 1,
-  name: "hp",
-};
+	id: 1,
+	name: 'hp',
+}

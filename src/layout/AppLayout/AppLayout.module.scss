@@ -1,15 +1,15 @@
-@use "../../constants.scss" as *;
+@use '../../constants.scss' as *;
 
 .layout {
-  height: 100vh;
-  background-color: black;
+	height: 100vh;
+	background-color: black;
 }
 
 .header {
-  background-color: $background-secondary;
+	background-color: $background-secondary;
 }
 
 .content {
-  margin: 50px;
-  background-color: $background-primary;
+	margin: 50px;
+	background-color: $background-primary;
 }
