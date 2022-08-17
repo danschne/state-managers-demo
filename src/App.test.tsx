@@ -14,7 +14,7 @@ describe('App', () => {
 		})
 	})
 
-	it("should redirect to first menu entry when landing at '/'", async () => {
+	it('should redirect to first menu entry when landing at "/"', async () => {
 		await act(async () => {
 			render(
 				<BrowserRouter>
