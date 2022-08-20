@@ -10,9 +10,20 @@ export function PokemonBattle() {
 
 	useEffect(() => {
 		async function fetchPokemon() {
-			// TODO: check if this approach of making async data fetching calls is recommended
-			setPokemon1(await getPokemon('pikachu')) // these calls cause some kind of async...
-			setPokemon2(await getPokemon('squirtle')) // ... issue when running App.test
+			let isOutdated = false
+
+			try {
+				const pikachu = await getPokemon('pikachu')
+				const squirtle = await getPokemon('squirtle')
+				if (!isOutdated) {
+					setPokemon1(pikachu)
+					setPokemon2(squirtle)
+				}
+			} catch (exception) {
+				console.log('error fetching pokemon', exception)
+			}
+
+			return () => (isOutdated = true)
 		}
 
 		fetchPokemon()

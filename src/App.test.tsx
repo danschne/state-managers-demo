@@ -2,8 +2,18 @@ import { act, render, screen } from '@testing-library/react'
 import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 import { App } from './App'
 import { MENU_ENTRIES } from './layout/NavigationBar/NavigationBar'
+import { getPokemon } from './pokemon/services/pokemonService'
+import { pikachu } from './pokemon/testData/examplePokemon'
+
+jest.mock('./pokemon/services/pokemonService')
+
+const mockedGetPokemon = getPokemon as jest.Mock
 
 describe('App', () => {
+	beforeEach(() => {
+		mockedGetPokemon.mockResolvedValue(pikachu)
+	})
+
 	it('should render', async () => {
 		await act(async () => {
 			render(
