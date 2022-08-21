@@ -30,7 +30,7 @@ export function PokemonBattle() {
 	}, [])
 
 	return (
-		<Row>
+		<Row gutter={32}>
 			<Col span={12}>{pokemon1 && <PokemonCard pokemon={pokemon1} />}</Col>
 			<Col span={12}>{pokemon2 && <PokemonCard pokemon={pokemon2} />}</Col>
 		</Row>

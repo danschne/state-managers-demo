@@ -1,5 +1,20 @@
 @use '../../../constants.scss' as *;
 
+.image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .text {
 	color: $text-primary !important;
+	text-align: center;
+}
+
+.progress {
+	margin-bottom: 24px;
+}
+
+.capitalize {
+	text-transform: capitalize;
 }
