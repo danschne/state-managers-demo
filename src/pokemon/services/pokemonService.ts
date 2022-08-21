@@ -1,25 +1,7 @@
 import axios from 'axios'
 import { Move } from '../models/move'
-import { Pokemon } from '../models/pokemon'
-import { Stat } from '../models/stat'
+import { getHp, Pokemon, ShallowPokemon } from '../models/pokemon'
 // import _ from "lodash";
-
-interface ShallowPokemon {
-	id: number
-	name: string
-	sprites: {
-		front_default: string
-	}
-	stats: {
-		base_stat: number
-		stat: Stat
-	}[]
-	moves: {
-		move: {
-			url: string
-		}
-	}[]
-}
 
 export async function getPokemon(name: string) {
 	const { data: shallowPokemon } = await axios.get<ShallowPokemon>(`https://pokeapi.co/api/v2/pokemon/${name}`)
@@ -54,5 +36,6 @@ function createPokemon(shallowPokemon: ShallowPokemon, moves: Move[]): Pokemon {
 		sprites: shallowPokemon.sprites,
 		stats: shallowPokemon.stats,
 		moves,
+		currentHp: getHp(shallowPokemon)?.base_stat,
 	}
 }

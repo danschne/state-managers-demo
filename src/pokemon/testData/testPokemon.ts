@@ -1,6 +1,6 @@
 import { Pokemon } from '../models/pokemon'
-import { tackle, thunderShock, waterGun } from './exampleMoves'
-import { hp } from './exampleStats'
+import { tackle, thunderShock, waterGun } from './testMoves'
+import { hp } from './testStats'
 
 export const pikachu: Pokemon = {
 	id: 1,

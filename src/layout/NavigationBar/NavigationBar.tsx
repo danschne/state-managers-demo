@@ -1,6 +1,7 @@
 import { Col, Menu, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PokemonBattle } from '../../pokemon/components/PokemonBattle/PokemonBattle'
+import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
 import { Placeholder } from '../Placeholder/Placeholder'
 import styles from './NavigationBar.module.scss'
 
@@ -16,7 +17,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	{
 		path: '/option1',
 		label: 'Option 1',
-		content: <PokemonBattle />,
+		content: <PokemonBattle useStore={useUseStateStore} />,
 	},
 	{
 		path: '/option2',

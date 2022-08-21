@@ -1,16 +1,22 @@
-import { Button, Col, Progress, Row, Typography } from 'antd'
-import { Pokemon } from '../../models/pokemon'
+import { Typography } from 'antd'
+import { HpBar } from '../../atoms/HpBar/HpBar'
+import { MoveSelection } from '../../atoms/MoveSelection/MoveSelection'
+import { Move } from '../../models/move'
+import { getHp, Pokemon } from '../../models/pokemon'
 import styles from './PokemonCard.module.scss'
 
 const { Title } = Typography
 
 interface PokemonCardProperties {
 	pokemon: Pokemon
+	onMove: (move: Move) => void
+	isActive?: boolean
 }
 
-export function PokemonCard({ pokemon }: PokemonCardProperties) {
-	const hp = pokemon.stats.find((stat) => stat.stat.name === 'hp')
-	const currentHp = hp
+// TODO: remove HP and power values after trying out (and adjusting damage scaling) a few fights
+export function PokemonCard({ pokemon, onMove, isActive }: PokemonCardProperties) {
+	const hp = getHp(pokemon)
+	const { currentHp } = pokemon
 
 	return (
 		<div>
@@ -20,29 +26,15 @@ export function PokemonCard({ pokemon }: PokemonCardProperties) {
 				width={200}
 				className={styles.image}
 			/>
-			<Title className={`${styles.text} ${styles.capitalize}`}>{pokemon.name}</Title>
-			{hp && currentHp && (
-				<Progress
-					strokeColor={{
-						'0%': '#a61d24',
-						'100%': '#49aa19',
-					}}
-					percent={(currentHp.base_stat / hp.base_stat) * 100}
-					showInfo={false}
-					className={styles.progress}
-				/>
+			<Title className={`${styles.text} ${styles.capitalize}`}>
+				{pokemon.name} ({hp?.base_stat} HP)
+			</Title>
+			{hp && currentHp !== undefined && (
+				<div className={styles.hpBar}>
+					<HpBar hp={hp.base_stat} currentHp={currentHp} />
+				</div>
 			)}
-			<Row gutter={[16, 16]}>
-				{pokemon.moves.map((move) => {
-					return (
-						<Col key={move.id} span={12}>
-							<Button type='primary' block className={styles.capitalize}>
-								{move.name}
-							</Button>
-						</Col>
-					)
-				})}
-			</Row>
+			<MoveSelection moves={pokemon.moves} onMove={onMove} disabled={!isActive || !currentHp} />
 		</div>
 	)
 }

@@ -3,7 +3,7 @@ import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 import { App } from './App'
 import { MENU_ENTRIES } from './layout/NavigationBar/NavigationBar'
 import { getPokemon } from './pokemon/services/pokemonService'
-import { pikachu } from './pokemon/testData/examplePokemon'
+import { pikachu } from './pokemon/testData/testPokemon'
 
 jest.mock('./pokemon/services/pokemonService')
 
