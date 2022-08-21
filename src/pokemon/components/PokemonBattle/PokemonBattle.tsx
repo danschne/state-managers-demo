@@ -10,7 +10,8 @@ interface PokemonBattleProperties {
 }
 
 // TODO: add a result screen and a new fight button (random new pokemon)
-// TODO: wrap some things in a context (mostly relevant for children)?
+// TODO: add rudimentary tests to fight mechanics
+// [TODO: wrap some things in a context (mostly relevant for children)?]
 export function PokemonBattle({ useStore }: PokemonBattleProperties) {
 	const {
 		pokemon1,
