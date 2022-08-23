@@ -81,6 +81,7 @@ export function PokemonBattle({ useStore }: PokemonBattleProperties) {
 			<BattleEndingModal
 				isVisible={isBattleEndingModalVisible}
 				onClose={closeBattleEndingModal}
+				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				onNewFight={() => {}}
 				playerHasWon={playerHasWon}
 			/>
