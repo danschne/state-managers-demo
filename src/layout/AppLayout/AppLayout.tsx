@@ -9,7 +9,7 @@ const { Header, Content } = Layout
 export function AppLayout() {
 	return (
 		<Layout className={styles.layout}>
-			<Header className={styles.header}>
+			<Header>
 				<NavigationBar />
 			</Header>
 			<Content className={styles.content}>
