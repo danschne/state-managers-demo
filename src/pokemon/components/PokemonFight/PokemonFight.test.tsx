@@ -1,4 +1,5 @@
 import { act, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { useUseStateStore } from '../../hooks/useUseStateStore'
 import { Pokemon } from '../../models/pokemon'
 import { get2RandomPokemon } from '../../services/pokemonService'
@@ -27,11 +28,41 @@ describe('PokemonFight', () => {
 				checkExpectedContentForPokemon(squirtle)
 			})
 
-			// TODO: make a move that doesn't kill -> moves should be disabled
+			it("should disable player 1's moves after attacking", async () => {
+				const user = userEvent.setup()
 
-			// TODO: make a move that doesn't kill -> reset -> moves should still be enabled
+				await act(async () => {
+					render(<PokemonFight useStore={useStore} />)
+				})
+				const tacklePikachu = screen.getAllByRole('button', { name: 'tackle' })[0]
+				await user.click(tacklePikachu)
 
-			// TODO: make a move that kills -> result modal should be shown
+				expect(tacklePikachu).toBeDisabled()
+			})
+
+			it('should reset the fight when clicking on "New fight"', async () => {
+				const user = userEvent.setup()
+
+				await act(async () => {
+					render(<PokemonFight useStore={useStore} />)
+				})
+				const tacklePikachu = screen.getAllByRole('button', { name: 'tackle' })[0]
+				await user.click(tacklePikachu)
+				await user.click(screen.getByRole('button', { name: 'New fight' }))
+
+				expect(tacklePikachu).toBeEnabled()
+			})
+
+			it('should show positive result screen when winning the fight', async () => {
+				const user = userEvent.setup()
+
+				await act(async () => {
+					render(<PokemonFight useStore={useStore} />)
+				})
+				await user.click(screen.getByRole('button', { name: 'thunder shock' }))
+
+				expect(screen.getByText('Congratulations, you won the fight!')).toBeInTheDocument()
+			})
 		})
 	})
 })

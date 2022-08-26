@@ -15,7 +15,7 @@ export const pikachu: Pokemon = {
 		},
 	],
 	moves: [tackle, thunderShock],
-	currentHp: 25,
+	currentHp: 13,
 }
 
 export const squirtle: Pokemon = {
@@ -31,5 +31,5 @@ export const squirtle: Pokemon = {
 		},
 	],
 	moves: [tackle, waterGun],
-	currentHp: 32,
+	currentHp: 15,
 }
