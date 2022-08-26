@@ -1,10 +1,21 @@
 import { Progress } from 'antd'
+import { getHp, Pokemon } from '../../models/pokemon'
 
 interface HpBarProperties {
-	hp: number
-	currentHp: number
+	pokemon: Pokemon
 }
 
-export function HpBar({ hp, currentHp }: HpBarProperties) {
-	return <Progress strokeColor='#49aa19' percent={(currentHp / hp) * 100} showInfo={false} />
+export function HpBar({ pokemon }: HpBarProperties) {
+	const hp = getHp(pokemon)
+	const { currentHp } = pokemon
+
+	return (
+		<>
+			{hp && currentHp !== undefined && (
+				<span data-testid={`hp-bar-${pokemon.name}`}>
+					<Progress strokeColor='#49aa19' percent={(currentHp / hp.base_stat) * 100} showInfo={false} />
+				</span>
+			)}
+		</>
+	)
 }

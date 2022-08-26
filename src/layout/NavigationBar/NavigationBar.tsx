@@ -1,6 +1,6 @@
 import { Col, Menu, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { PokemonBattle } from '../../pokemon/components/PokemonBattle/PokemonBattle'
+import { PokemonFight } from '../../pokemon/components/PokemonFight/PokemonFight'
 import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
 import { Placeholder } from '../Placeholder/Placeholder'
 import styles from './NavigationBar.module.scss'
@@ -15,19 +15,32 @@ interface MenuEntry {
 
 export const MENU_ENTRIES: MenuEntry[] = [
 	{
-		path: '/option1',
-		label: 'Option 1',
-		content: <PokemonBattle useStore={useUseStateStore} />,
+		path: '/use-state',
+		label: 'useState',
+		content: <PokemonFight useStore={useUseStateStore} />,
 	},
 	{
-		path: '/option2',
-		label: 'Option 2',
-		content: <Placeholder text='Content 2' />,
+		path: '/use-reducer',
+		label: 'useReducer',
+		content: <Placeholder text='useReducer' />,
 	},
 	{
-		path: '/option3',
-		label: 'Option 3',
-		content: <Placeholder text='Content 3' />,
+		path: '/react-redux',
+		label: 'React Redux',
+		// https://www.npmjs.com/package/react-redux
+		content: <Placeholder text='React Redux' />,
+	},
+	{
+		path: '/redux-toolkit',
+		label: 'Redux Toolkit',
+		// https://redux-toolkit.js.org/
+		content: <Placeholder text='Redux Toolkit' />,
+	},
+	{
+		path: '/easy-peasy',
+		label: 'Easy Peasy',
+		// https://easy-peasy.dev/
+		content: <Placeholder text='Easy Peasy' />,
 	},
 ]
 

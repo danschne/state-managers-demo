@@ -2,28 +2,20 @@ import { act, render, screen } from '@testing-library/react'
 import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 import { App } from './App'
 import { MENU_ENTRIES } from './layout/NavigationBar/NavigationBar'
-import { getPokemon } from './pokemon/services/pokemonService'
-import { pikachu } from './pokemon/testData/testPokemon'
+import { Placeholder } from './layout/Placeholder/Placeholder'
 
-jest.mock('./pokemon/services/pokemonService')
-
-const mockedGetPokemon = getPokemon as jest.Mock
+jest.doMock('./layout/NavigationBar/NavigationBar', () => ({
+	...jest.requireActual('./layout/NavigationBar/NavigationBar'),
+	MENU_ENTRIES: [
+		{
+			path: '/path1',
+			label: 'Label 1',
+			content: <Placeholder text='Content 1' />,
+		},
+	],
+}))
 
 describe('App', () => {
-	beforeEach(() => {
-		mockedGetPokemon.mockResolvedValue(pikachu)
-	})
-
-	it('should render', async () => {
-		await act(async () => {
-			render(
-				<BrowserRouter>
-					<App />
-				</BrowserRouter>
-			)
-		})
-	})
-
 	it('should redirect to first menu entry when landing at "/"', async () => {
 		await act(async () => {
 			render(

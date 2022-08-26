@@ -14,8 +14,15 @@ export function MoveSelection({ moves, onMove, disabled }: MoveSelectionProperti
 			{moves.map((move) => {
 				return (
 					<Col key={move.id} span={12}>
-						<Button type='primary' block className={styles.capitalize} onClick={() => onMove(move)} disabled={disabled}>
-							{move.name} ({move.pp})
+						<Button
+							size='large'
+							type='primary'
+							block
+							className={styles.capitalize}
+							onClick={() => onMove(move)}
+							disabled={disabled}
+						>
+							{move.name}
 						</Button>
 					</Col>
 				)

@@ -9,4 +9,7 @@ export interface Store {
 	setCurrentHpOfPokemon2: (hp: number) => void
 	isPokemon1sTurn: boolean
 	toggleIsPokemon1sTurn: () => void
+	playerHasWon: boolean
+	setPlayerHasWon: (playerHasWon: boolean) => void
+	resetFightState: () => void
 }

@@ -1,13 +1,13 @@
 import { Button, Modal } from 'antd'
 
-interface BattleEndingModalProperties {
+interface FightResultModalProperties {
 	isVisible: boolean
 	onClose: () => void
 	onNewFight: () => void
 	playerHasWon: boolean
 }
 
-export function BattleEndingModal({ isVisible, onClose, onNewFight, playerHasWon }: BattleEndingModalProperties) {
+export function FightResultModal({ isVisible, onClose, onNewFight, playerHasWon }: FightResultModalProperties) {
 	function closeAndStartNewFight() {
 		onClose()
 		onNewFight()
@@ -23,7 +23,7 @@ export function BattleEndingModal({ isVisible, onClose, onNewFight, playerHasWon
 					OK
 				</Button>,
 				<Button key='submit' type='primary' onClick={closeAndStartNewFight}>
-					Play new fight
+					New fight
 				</Button>,
 			]}
 		>

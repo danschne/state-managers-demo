@@ -10,11 +10,12 @@ export const pikachu: Pokemon = {
 	},
 	stats: [
 		{
-			base_stat: 42,
+			base_stat: 25,
 			stat: hp,
 		},
 	],
 	moves: [tackle, thunderShock],
+	currentHp: 25,
 }
 
 export const squirtle: Pokemon = {
@@ -25,9 +26,10 @@ export const squirtle: Pokemon = {
 	},
 	stats: [
 		{
-			base_stat: 46,
+			base_stat: 32,
 			stat: hp,
 		},
 	],
 	moves: [tackle, waterGun],
+	currentHp: 32,
 }

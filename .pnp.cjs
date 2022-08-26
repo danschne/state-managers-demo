@@ -53,6 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:0.27.2"],\
             ["eslint", "npm:8.21.0"],\
             ["eslint-plugin-react", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.30.1"],\
+            ["eslint-plugin-react-hooks", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.6.0"],\
             ["husky", "npm:8.0.1"],\
             ["identity-obj-proxy", "npm:3.0.0"],\
             ["lodash", "npm:4.17.21"],\
@@ -8195,7 +8196,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-jest", "virtual:53b4b4d84bb443a2fe29e9f3414e0d7d1dd44789730f9176e6e6f4866a0b2d830e7a4b368400f1bf13bc23d4c1a6f084e2ceaa5902dd476d7f3c1c5d0afb0ae0#npm:25.7.0"],\
             ["eslint-plugin-jsx-a11y", "virtual:53b4b4d84bb443a2fe29e9f3414e0d7d1dd44789730f9176e6e6f4866a0b2d830e7a4b368400f1bf13bc23d4c1a6f084e2ceaa5902dd476d7f3c1c5d0afb0ae0#npm:6.6.1"],\
             ["eslint-plugin-react", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.30.1"],\
-            ["eslint-plugin-react-hooks", "virtual:53b4b4d84bb443a2fe29e9f3414e0d7d1dd44789730f9176e6e6f4866a0b2d830e7a4b368400f1bf13bc23d4c1a6f084e2ceaa5902dd476d7f3c1c5d0afb0ae0#npm:4.6.0"],\
+            ["eslint-plugin-react-hooks", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.6.0"],\
             ["eslint-plugin-testing-library", "virtual:53b4b4d84bb443a2fe29e9f3414e0d7d1dd44789730f9176e6e6f4866a0b2d830e7a4b368400f1bf13bc23d4c1a6f084e2ceaa5902dd476d7f3c1c5d0afb0ae0#npm:5.6.0"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"]\
           ],\
@@ -8439,10 +8440,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:53b4b4d84bb443a2fe29e9f3414e0d7d1dd44789730f9176e6e6f4866a0b2d830e7a4b368400f1bf13bc23d4c1a6f084e2ceaa5902dd476d7f3c1c5d0afb0ae0#npm:4.6.0", {\
-          "packageLocation": "./.yarn/__virtual__/eslint-plugin-react-hooks-virtual-d8cf9da286/0/cache/eslint-plugin-react-hooks-npm-4.6.0-b429fac07f-23001801f1.zip/node_modules/eslint-plugin-react-hooks/",\
+        ["virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.6.0", {\
+          "packageLocation": "./.yarn/__virtual__/eslint-plugin-react-hooks-virtual-364f016e4a/0/cache/eslint-plugin-react-hooks-npm-4.6.0-b429fac07f-23001801f1.zip/node_modules/eslint-plugin-react-hooks/",\
           "packageDependencies": [\
-            ["eslint-plugin-react-hooks", "virtual:53b4b4d84bb443a2fe29e9f3414e0d7d1dd44789730f9176e6e6f4866a0b2d830e7a4b368400f1bf13bc23d4c1a6f084e2ceaa5902dd476d7f3c1c5d0afb0ae0#npm:4.6.0"],\
+            ["eslint-plugin-react-hooks", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.6.0"],\
             ["@types/eslint", null],\
             ["eslint", "npm:8.21.0"]\
           ],\
@@ -16793,6 +16794,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:0.27.2"],\
             ["eslint", "npm:8.21.0"],\
             ["eslint-plugin-react", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.30.1"],\
+            ["eslint-plugin-react-hooks", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.6.0"],\
             ["husky", "npm:8.0.1"],\
             ["identity-obj-proxy", "npm:3.0.0"],\
             ["lodash", "npm:4.17.21"],\

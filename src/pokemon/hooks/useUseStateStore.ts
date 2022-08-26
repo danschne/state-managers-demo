@@ -6,6 +6,7 @@ export function useUseStateStore(): Store {
 	const [pokemon1, setPokemon1] = useState<Pokemon>()
 	const [pokemon2, setPokemon2] = useState<Pokemon>()
 	const [isPokemon1sTurn, setIsPokemon1sTurn] = useState(true)
+	const [playerHasWon, setPlayerHasWon] = useState(false)
 
 	function setCurrentHp(hp: number, setPokemon: Dispatch<SetStateAction<Pokemon | undefined>>) {
 		setPokemon((previous) => {
@@ -18,8 +19,9 @@ export function useUseStateStore(): Store {
 		})
 	}
 
-	function toggleIsPokemon1sTurn() {
-		setIsPokemon1sTurn((previous) => !previous)
+	function resetFightState() {
+		setIsPokemon1sTurn(true)
+		setPlayerHasWon(false)
 	}
 
 	return {
@@ -30,6 +32,9 @@ export function useUseStateStore(): Store {
 		setPokemon2,
 		setCurrentHpOfPokemon2: (hp: number) => setCurrentHp(hp, setPokemon2),
 		isPokemon1sTurn,
-		toggleIsPokemon1sTurn,
+		toggleIsPokemon1sTurn: () => setIsPokemon1sTurn((previous) => !previous),
+		playerHasWon,
+		setPlayerHasWon,
+		resetFightState,
 	}
 }
