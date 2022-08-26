@@ -11,5 +11,5 @@ export interface Store {
 	toggleIsPokemon1sTurn: () => void
 	playerHasWon: boolean
 	setPlayerHasWon: (playerHasWon: boolean) => void
-	resetFightState: () => void
+	resetFightState: (pokemon1?: Pokemon, pokemon2?: Pokemon) => void
 }

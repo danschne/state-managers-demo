@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { useUseReducerStore } from '../../hooks/useUseReducerStore'
 import { useUseStateStore } from '../../hooks/useUseStateStore'
 import { Pokemon } from '../../models/pokemon'
 import { get2RandomPokemon } from '../../services/pokemonService'
@@ -15,8 +16,10 @@ describe('PokemonFight', () => {
 		mockedGet2RandomPokemon.mockResolvedValue([pikachu, squirtle])
 	})
 
-	const stateManagementOptions = [{ name: 'useState', useStore: useUseStateStore }]
-
+	const stateManagementOptions = [
+		{ name: 'useState', useStore: useUseStateStore },
+		{ name: 'useReducer', useStore: useUseReducerStore },
+	]
 	stateManagementOptions.forEach(({ name, useStore }) => {
 		describe(`with ${name}`, () => {
 			it('should render the fight pikachu vs. squirtle', async () => {

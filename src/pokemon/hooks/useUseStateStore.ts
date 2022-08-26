@@ -19,7 +19,9 @@ export function useUseStateStore(): Store {
 		})
 	}
 
-	function resetFightState() {
+	function resetFightState(pokemon1?: Pokemon, pokemon2?: Pokemon) {
+		setPokemon1(pokemon1)
+		setPokemon2(pokemon2)
 		setIsPokemon1sTurn(true)
 		setPlayerHasWon(false)
 	}

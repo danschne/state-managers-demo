@@ -1,6 +1,7 @@
 import { Col, Menu, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PokemonFight } from '../../pokemon/components/PokemonFight/PokemonFight'
+import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
 import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
 import { Placeholder } from '../Placeholder/Placeholder'
 import styles from './NavigationBar.module.scss'
@@ -17,12 +18,12 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	{
 		path: '/use-state',
 		label: 'useState',
-		content: <PokemonFight useStore={useUseStateStore} />,
+		content: <PokemonFight key={'useState'} useStore={useUseStateStore} />,
 	},
 	{
 		path: '/use-reducer',
 		label: 'useReducer',
-		content: <Placeholder text='useReducer' />,
+		content: <PokemonFight key={'useReducer'} useStore={useUseReducerStore} />,
 	},
 	{
 		path: '/react-redux',
