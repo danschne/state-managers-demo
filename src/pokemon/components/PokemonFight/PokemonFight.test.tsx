@@ -27,7 +27,11 @@ describe('PokemonFight', () => {
 				checkExpectedContentForPokemon(squirtle)
 			})
 
-			// TODO: test interaction logic
+			// TODO: make a move that doesn't kill -> moves should be disabled
+
+			// TODO: make a move that doesn't kill -> reset -> moves should still be enabled
+
+			// TODO: make a move that kills -> result modal should be shown
 		})
 	})
 })
@@ -37,7 +41,7 @@ function checkExpectedContentForPokemon(pokemon: Pokemon) {
 	expect(screen.getByText(pokemon.name)).toBeInTheDocument()
 	expect(screen.getByTestId(`hp-bar-${pokemon.name}`)).toBeInTheDocument()
 	pokemon.moves.forEach((move) => {
-		const moveButtons = screen.getAllByRole('button', { name: move.name, exact: false })
+		const moveButtons = screen.getAllByRole('button', { name: move.name })
 		expect(moveButtons.length).toBeGreaterThanOrEqual(1)
 	})
 }
