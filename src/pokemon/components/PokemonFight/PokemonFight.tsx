@@ -1,5 +1,5 @@
 import { Button, Col, Row } from 'antd'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useInitializePokemon } from '../../hooks/useInitializePokemon'
 import { Move } from '../../models/move'
 import { Store } from '../../models/store'
@@ -12,42 +12,26 @@ interface PokemonFightProperties {
 }
 
 export function PokemonFight({ useStore }: PokemonFightProperties) {
-	const {
-		pokemon1,
-		setPokemon1,
-		setCurrentHpOfPokemon1,
-		pokemon2,
-		setPokemon2,
-		setCurrentHpOfPokemon2,
-		isPokemon1sTurn,
-		toggleIsPokemon1sTurn,
-		playerHasWon,
-		setPlayerHasWon,
-		resetFightState,
-	} = useStore()
+	const { pokemon1, pokemon2, setPokemon, isPokemon1sTurn, pokemon1HasWon, advanceFight, resetFight } = useStore()
 	const [isFightResultModalVisible, setIsFightResultModalVisible] = useState(false)
-	useInitializePokemon(setPokemon1, setPokemon2)
 
 	function makeMove(move: Move) {
-		const setCurrentHpOfPokemon = isPokemon1sTurn ? setCurrentHpOfPokemon2 : setCurrentHpOfPokemon1
-		const pokemon = isPokemon1sTurn ? pokemon2 : pokemon1
-		const currentHp = Math.max((pokemon?.currentHp ?? 0) - move.pp, 0)
-
-		setCurrentHpOfPokemon(currentHp)
-		toggleIsPokemon1sTurn()
-
-		if (currentHp === 0) {
-			setIsFightResultModalVisible(true)
-			if (pokemon === pokemon2) {
-				setPlayerHasWon(true)
-			}
-		}
+		advanceFight(move.pp)
 	}
 
 	async function setUpNewFight() {
 		const [randomPokemon1, randomPokemon2] = await get2RandomPokemon()
-		resetFightState(randomPokemon1, randomPokemon2)
+		resetFight(randomPokemon1, randomPokemon2)
 	}
+
+	useInitializePokemon(setPokemon)
+
+	useEffect(() => {
+		const fightIsOver = pokemon1?.currentHp === 0 || pokemon2?.currentHp === 0
+		if (fightIsOver) {
+			setIsFightResultModalVisible(true)
+		}
+	}, [pokemon1, pokemon2])
 
 	return (
 		<>
@@ -68,7 +52,7 @@ export function PokemonFight({ useStore }: PokemonFightProperties) {
 				isVisible={isFightResultModalVisible}
 				onClose={() => setIsFightResultModalVisible(false)}
 				onNewFight={setUpNewFight}
-				playerHasWon={playerHasWon}
+				playerHasWon={pokemon1HasWon}
 			/>
 		</>
 	)

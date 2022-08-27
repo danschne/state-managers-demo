@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useState } from 'react'
 import { Pokemon } from '../models/pokemon'
 import { Store } from '../models/store'
 
@@ -6,7 +6,24 @@ export function useUseStateStore(): Store {
 	const [pokemon1, setPokemon1] = useState<Pokemon>()
 	const [pokemon2, setPokemon2] = useState<Pokemon>()
 	const [isPokemon1sTurn, setIsPokemon1sTurn] = useState(true)
-	const [playerHasWon, setPlayerHasWon] = useState(false)
+	const [pokemon1HasWon, setPokemon1HasWon] = useState(false)
+
+	const setPokemon = useCallback((pokemon1?: Pokemon, pokemon2?: Pokemon) => {
+		setPokemon1(pokemon1)
+		setPokemon2(pokemon2)
+	}, [])
+
+	function advanceFight(movePower: number) {
+		const pokemon = isPokemon1sTurn ? pokemon2 : pokemon1
+		const currentHp = Math.max((pokemon?.currentHp ?? 0) - movePower, 0)
+
+		setCurrentHp(currentHp, isPokemon1sTurn ? setPokemon2 : setPokemon1)
+		setIsPokemon1sTurn((previous) => !previous)
+
+		if (currentHp === 0 && pokemon === pokemon2) {
+			setPokemon1HasWon(true)
+		}
+	}
 
 	function setCurrentHp(hp: number, setPokemon: Dispatch<SetStateAction<Pokemon | undefined>>) {
 		setPokemon((previous) => {
@@ -19,24 +36,19 @@ export function useUseStateStore(): Store {
 		})
 	}
 
-	function resetFightState(pokemon1?: Pokemon, pokemon2?: Pokemon) {
-		setPokemon1(pokemon1)
-		setPokemon2(pokemon2)
+	function resetFight(pokemon1?: Pokemon, pokemon2?: Pokemon) {
+		setPokemon(pokemon1, pokemon2)
 		setIsPokemon1sTurn(true)
-		setPlayerHasWon(false)
+		setPokemon1HasWon(false)
 	}
 
 	return {
 		pokemon1,
-		setPokemon1,
-		setCurrentHpOfPokemon1: (hp: number) => setCurrentHp(hp, setPokemon1),
 		pokemon2,
-		setPokemon2,
-		setCurrentHpOfPokemon2: (hp: number) => setCurrentHp(hp, setPokemon2),
+		setPokemon,
 		isPokemon1sTurn,
-		toggleIsPokemon1sTurn: () => setIsPokemon1sTurn((previous) => !previous),
-		playerHasWon,
-		setPlayerHasWon,
-		resetFightState,
+		pokemon1HasWon,
+		advanceFight,
+		resetFight,
 	}
 }

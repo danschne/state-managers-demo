@@ -6,55 +6,29 @@ interface FightState {
 	pokemon1?: Pokemon
 	pokemon2?: Pokemon
 	isPokemon1sTurn: boolean
-	playerHasWon: boolean
+	pokemon1HasWon: boolean
 }
 
 const INITIAL_FIGHT_STATE: FightState = {
 	isPokemon1sTurn: true,
-	playerHasWon: false,
+	pokemon1HasWon: false,
 }
 
 type Action =
-	| { type: 'setPokemon1'; pokemon?: Pokemon }
-	| { type: 'setCurrentHpOfPokemon1'; hp: number }
-	| { type: 'setPokemon2'; pokemon?: Pokemon }
-	| { type: 'setCurrentHpOfPokemon2'; hp: number }
-	| { type: 'toggleIsPokemon1sTurn' }
-	| { type: 'setPlayerHasWon'; playerHasWon: boolean }
+	| { type: 'setPokemon'; pokemon1?: Pokemon; pokemon2?: Pokemon }
+	| { type: 'advance'; movePower: number }
 	| { type: 'reset'; pokemon1?: Pokemon; pokemon2?: Pokemon }
 
 function fightReducer(state: FightState, action: Action): FightState {
 	switch (action.type) {
-		case 'setPokemon1':
+		case 'setPokemon':
 			return {
 				...state,
-				pokemon1: action.pokemon,
+				pokemon1: action.pokemon1,
+				pokemon2: action.pokemon2,
 			}
-		case 'setCurrentHpOfPokemon1':
-			return {
-				...state,
-				pokemon1: state.pokemon1 ? { ...state.pokemon1, currentHp: action.hp } : undefined,
-			}
-		case 'setPokemon2':
-			return {
-				...state,
-				pokemon2: action.pokemon,
-			}
-		case 'setCurrentHpOfPokemon2':
-			return {
-				...state,
-				pokemon2: state.pokemon2 ? { ...state.pokemon2, currentHp: action.hp } : undefined,
-			}
-		case 'toggleIsPokemon1sTurn':
-			return {
-				...state,
-				isPokemon1sTurn: !state.isPokemon1sTurn,
-			}
-		case 'setPlayerHasWon':
-			return {
-				...state,
-				playerHasWon: action.playerHasWon,
-			}
+		case 'advance':
+			return advanceFight(state, action.movePower)
 		case 'reset':
 			return {
 				...INITIAL_FIGHT_STATE,
@@ -64,21 +38,41 @@ function fightReducer(state: FightState, action: Action): FightState {
 	}
 }
 
+function advanceFight(state: FightState, movePower: number): FightState {
+	const { pokemon1, pokemon2, isPokemon1sTurn } = state
+	const pokemon = isPokemon1sTurn ? pokemon2 : pokemon1
+	const currentHp = Math.max((pokemon?.currentHp ?? 0) - movePower, 0)
+
+	return {
+		pokemon1: pokemon === pokemon2 ? pokemon1 : reduceHp(currentHp, pokemon1),
+		pokemon2: pokemon === pokemon1 ? pokemon2 : reduceHp(currentHp, pokemon2),
+		isPokemon1sTurn: !isPokemon1sTurn,
+		pokemon1HasWon: currentHp === 0 && pokemon === pokemon2,
+	}
+}
+
+function reduceHp(currentHp: number, pokemon?: Pokemon): Pokemon | undefined {
+	if (pokemon) {
+		return {
+			...pokemon,
+			currentHp,
+		}
+	}
+	return undefined
+}
+
 export function useUseReducerStore(): Store {
 	const [state, dispatch] = useReducer(fightReducer, INITIAL_FIGHT_STATE)
 
-	const setPokemon1 = useCallback((pokemon?: Pokemon) => dispatch({ type: 'setPokemon1', pokemon }), [])
-
-	const setPokemon2 = useCallback((pokemon?: Pokemon) => dispatch({ type: 'setPokemon2', pokemon }), [])
+	const setPokemon = useCallback(
+		(pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'setPokemon', pokemon1, pokemon2 }),
+		[]
+	)
 
 	return {
 		...state,
-		setPokemon1,
-		setCurrentHpOfPokemon1: (hp: number) => dispatch({ type: 'setCurrentHpOfPokemon1', hp }),
-		setPokemon2,
-		setCurrentHpOfPokemon2: (hp: number) => dispatch({ type: 'setCurrentHpOfPokemon2', hp }),
-		toggleIsPokemon1sTurn: () => dispatch({ type: 'toggleIsPokemon1sTurn' }),
-		setPlayerHasWon: (playerHasWon: boolean) => dispatch({ type: 'setPlayerHasWon', playerHasWon }),
-		resetFightState: (pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'reset', pokemon1, pokemon2 }),
+		setPokemon,
+		advanceFight: (movePower: number) => dispatch({ type: 'advance', movePower }),
+		resetFight: (pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'reset', pokemon1, pokemon2 }),
 	}
 }
