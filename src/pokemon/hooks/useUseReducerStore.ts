@@ -2,24 +2,24 @@ import { useCallback, useReducer } from 'react'
 import { Pokemon } from '../models/pokemon'
 import { Store } from '../models/store'
 
-interface FightState {
+export interface FightState {
 	pokemon1?: Pokemon
 	pokemon2?: Pokemon
 	isPokemon1sTurn: boolean
 	pokemon1HasWon: boolean
 }
 
-const INITIAL_FIGHT_STATE: FightState = {
+export const INITIAL_FIGHT_STATE: FightState = {
 	isPokemon1sTurn: true,
 	pokemon1HasWon: false,
 }
 
-type Action =
+export type Action =
 	| { type: 'setPokemon'; pokemon1?: Pokemon; pokemon2?: Pokemon }
 	| { type: 'advance'; movePower: number }
 	| { type: 'reset'; pokemon1?: Pokemon; pokemon2?: Pokemon }
 
-function fightReducer(state: FightState, action: Action): FightState {
+export function fightReducer(state: FightState, action: Action): FightState {
 	switch (action.type) {
 		case 'setPokemon':
 			return {

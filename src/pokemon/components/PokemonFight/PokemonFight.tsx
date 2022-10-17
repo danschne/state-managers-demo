@@ -11,6 +11,9 @@ interface PokemonFightProperties {
 	useStore: () => Store
 }
 
+// TODO: solve following bug: fight ended, user clicked ok, user switched tab to something else and then back, new fight is loaded
+//       BUT ending dialog is shown from previous fight and it might be pokemon2's turn
+//       => clean-up functions in useEffects() or reset hard on initial load?
 export function PokemonFight({ useStore }: PokemonFightProperties) {
 	const { pokemon1, pokemon2, setPokemon, isPokemon1sTurn, pokemon1HasWon, advanceFight, resetFight } = useStore()
 	const [isFightResultModalVisible, setIsFightResultModalVisible] = useState(false)

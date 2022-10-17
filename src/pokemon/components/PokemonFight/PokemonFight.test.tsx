@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { createReactReduxStore, ReactReduxStoreProvider, useReactReduxStore } from '../../hooks/useReactReduxStore'
 import { useUseReducerStore } from '../../hooks/useUseReducerStore'
 import { useUseStateStore } from '../../hooks/useUseStateStore'
 import { Pokemon } from '../../models/pokemon'
@@ -19,12 +20,26 @@ describe('PokemonFight', () => {
 	const stateManagementOptions = [
 		{ name: 'useState', useStore: useUseStateStore },
 		{ name: 'useReducer', useStore: useUseReducerStore },
+		{
+			name: 'React Redux',
+			useStore: useReactReduxStore,
+			StoreProvider: ReactReduxStoreProvider,
+			createStore: createReactReduxStore,
+		},
 	]
-	stateManagementOptions.forEach(({ name, useStore }) => {
+	stateManagementOptions.forEach(({ name, useStore, StoreProvider, createStore }) => {
 		describe(`with ${name}`, () => {
+			const testee = StoreProvider ? (
+				<StoreProvider store={createStore()}>
+					<PokemonFight useStore={useStore} />
+				</StoreProvider>
+			) : (
+				<PokemonFight useStore={useStore} />
+			)
+
 			it('should render the fight pikachu vs. squirtle', async () => {
 				await act(async () => {
-					render(<PokemonFight useStore={useStore} />)
+					render(testee)
 				})
 
 				checkExpectedContentForPokemon(pikachu)
@@ -35,7 +50,7 @@ describe('PokemonFight', () => {
 				const user = userEvent.setup()
 
 				await act(async () => {
-					render(<PokemonFight useStore={useStore} />)
+					render(testee)
 				})
 				const tacklePikachu = screen.getAllByRole('button', { name: 'tackle' })[0]
 				await user.click(tacklePikachu)
@@ -47,7 +62,7 @@ describe('PokemonFight', () => {
 				const user = userEvent.setup()
 
 				await act(async () => {
-					render(<PokemonFight useStore={useStore} />)
+					render(testee)
 				})
 				const tacklePikachu = screen.getAllByRole('button', { name: 'tackle' })[0]
 				await user.click(tacklePikachu)
@@ -60,7 +75,7 @@ describe('PokemonFight', () => {
 				const user = userEvent.setup()
 
 				await act(async () => {
-					render(<PokemonFight useStore={useStore} />)
+					render(testee)
 				})
 				await user.click(screen.getByRole('button', { name: 'thunder shock' }))
 
