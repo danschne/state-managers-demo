@@ -51,6 +51,30 @@ export const MENU_ENTRIES: MenuEntry[] = [
 		// https://easy-peasy.dev/
 		content: <Placeholder text='Easy Peasy' />,
 	},
+	{
+		path: '/zustand',
+		label: 'Zustand',
+		// https://github.com/pmndrs/zustand
+		content: <Placeholder text='Zustand' />,
+	},
+	{
+		path: '/hookstate',
+		label: 'Hookstate',
+		// https://hookstate.js.org/
+		content: <Placeholder text='Hookstate' />,
+	},
+	{
+		path: '/jotai',
+		label: 'Jotai',
+		// https://jotai.org/
+		content: <Placeholder text='Jotai' />,
+	},
+	{
+		path: '/recoil',
+		label: 'Recoil',
+		// https://recoiljs.org/
+		content: <Placeholder text='Recoil' />,
+	},
 ]
 
 const ITEMS = MENU_ENTRIES.map((entry) => {

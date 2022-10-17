@@ -47,5 +47,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 # Further Steps
 
-- Update react-router and try out new data fetching mechanism (combined/started already on routing)
+- Update react-router and try out new data fetching mechanism
+- Try out data-fetching with React Query (https://react-query-v3.tanstack.com/) (Toggle between this and react-router mechanism? Or is it not mutually exclusive?)
 - Implement simple AI to play against
