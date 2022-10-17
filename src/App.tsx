@@ -3,6 +3,7 @@ import { AppLayout } from './layout/AppLayout/AppLayout'
 import { MENU_ENTRIES } from './layout/NavigationBar/NavigationBar'
 import { Placeholder } from './layout/Placeholder/Placeholder'
 
+// TODO: update react-router and implement new loading into routing?
 export function App() {
 	return (
 		<Routes>

@@ -23,10 +23,9 @@ export async function getPokemon(idOrName: number | string) {
 		const { data: shallowPokemon } = await axios.get<ShallowPokemon>(`https://pokeapi.co/api/v2/pokemon/${idOrName}`)
 
 		const moves: Move[] = []
-		for (const { move: shallowMove } of getFirstXValues(
+		for (const { move: shallowMove } of tryGetFirstXValues(
 			4,
-			shallowPokemon.moves
-			// _.shuffle(shallowPokemon.moves) // takes quite a bit of time and thus would also require a loading indicator if implemented
+			shallowPokemon.moves // _.shuffle(shallowPokemon.moves) // takes quite a bit of time and thus would also require a loading indicator if implemented
 		)) {
 			const { data: move } = await axios.get<Move>(shallowMove.url)
 			moves.push(move)
@@ -39,10 +38,11 @@ export async function getPokemon(idOrName: number | string) {
 	}
 }
 
-function getFirstXValues<T>(x: number, array: T[]) {
+function tryGetFirstXValues<T>(x: number, array: T[]) {
 	const values: T[] = []
+	const highestIndex = Math.min(x, array.length)
 
-	for (let i = 0; i < x; i++) {
+	for (let i = 0; i < highestIndex; i++) {
 		values.push(array[i])
 	}
 
