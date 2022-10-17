@@ -9,11 +9,7 @@ function reducer(state: FightState = INITIAL_FIGHT_STATE, action: Action) {
 	return fightReducer(state, action)
 }
 
-interface ReactReduxStoreProviderProperties extends PropsWithChildren {
-	key?: React.Key | null
-}
-
-export function ReactReduxStoreProvider({ key, children }: ReactReduxStoreProviderProperties) {
+export function ReactReduxStoreProvider({ children }: PropsWithChildren) {
 	/*
 	 * This is probably not a good practice since you generally only want to have one kind
 	 * of store in your app and thus can make it a global instance, but for the sake of this
@@ -21,11 +17,7 @@ export function ReactReduxStoreProvider({ key, children }: ReactReduxStoreProvid
 	 */
 	const store = useMemo(() => createStore(reducer), [])
 
-	return (
-		<Provider key={key} store={store}>
-			{children}
-		</Provider>
-	)
+	return <Provider store={store}>{children}</Provider>
 }
 
 export function useReactReduxStore(): Store {

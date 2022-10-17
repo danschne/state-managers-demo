@@ -30,7 +30,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
 		path: '/react-redux',
 		label: 'React Redux',
 		content: (
-			<ReactReduxStoreProvider key={'React Redux'}>
+			<ReactReduxStoreProvider>
 				<PokemonFight useStore={useReactReduxStore} />
 			</ReactReduxStoreProvider>
 		),
