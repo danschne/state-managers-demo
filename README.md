@@ -45,8 +45,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-# Project Ideas
+# Further Steps
 
-- PokeAPI: very simple fight between two Pokemons (choose the next attack)
-- TheMovieDB API: some kind of movie facts quiz (how to include a bit of state management?)
-- Genius API: some kind of song quiz (how to include a bit of state management?)
+- Update react-router and try out new data fetching mechanism (combined/started already on routing)
+- Implement simple AI to play against
