@@ -35,10 +35,12 @@ export function fightReducer(state: FightState, action: Action): FightState {
 				pokemon1: action.pokemon1,
 				pokemon2: action.pokemon2,
 			}
+		default:
+			return state
 	}
 }
 
-function advanceFight(state: FightState, movePower: number): FightState {
+export function advanceFight(state: FightState, movePower: number): FightState {
 	const { pokemon1, pokemon2, isPokemon1sTurn } = state
 	const pokemon = isPokemon1sTurn ? pokemon2 : pokemon1
 	const currentHp = Math.max((pokemon?.currentHp ?? 0) - movePower, 0)
@@ -64,14 +66,12 @@ function reduceHp(currentHp: number, pokemon?: Pokemon): Pokemon | undefined {
 export function useUseReducerStore(): Store {
 	const [state, dispatch] = useReducer(fightReducer, INITIAL_FIGHT_STATE)
 
-	const setPokemon = useCallback(
-		(pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'setPokemon', pokemon1, pokemon2 }),
-		[]
-	)
-
 	return {
 		...state,
-		setPokemon,
+		setPokemon: useCallback(
+			(pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'setPokemon', pokemon1, pokemon2 }),
+			[]
+		),
 		advanceFight: (movePower: number) => dispatch({ type: 'advance', movePower }),
 		resetFight: (pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'reset', pokemon1, pokemon2 }),
 	}

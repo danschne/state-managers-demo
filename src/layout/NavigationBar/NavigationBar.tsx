@@ -2,6 +2,7 @@ import { Col, Menu, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PokemonFight } from '../../pokemon/components/PokemonFight/PokemonFight'
 import { ReactReduxStoreProvider, useReactReduxStore } from '../../pokemon/hooks/useReactReduxStore'
+import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../pokemon/hooks/useReduxToolkitStore'
 import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
 import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
 import { Placeholder } from '../Placeholder/Placeholder'
@@ -38,8 +39,11 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	{
 		path: '/redux-toolkit',
 		label: 'Redux Toolkit',
-		// https://redux-toolkit.js.org/
-		content: <Placeholder text='Redux Toolkit' />,
+		content: (
+			<ReduxToolkitStoreProvider>
+				<PokemonFight useStore={useReduxToolkitStore} />
+			</ReduxToolkitStoreProvider>
+		),
 	},
 	{
 		path: '/easy-peasy',
