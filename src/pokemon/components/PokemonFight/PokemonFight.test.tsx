@@ -1,6 +1,6 @@
 import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { createReactReduxStore, ReactReduxStoreProvider, useReactReduxStore } from '../../hooks/useReactReduxStore'
+import { ReactReduxStoreProvider, useReactReduxStore } from '../../hooks/useReactReduxStore'
 import { useUseReducerStore } from '../../hooks/useUseReducerStore'
 import { useUseStateStore } from '../../hooks/useUseStateStore'
 import { Pokemon } from '../../models/pokemon'
@@ -24,13 +24,12 @@ describe('PokemonFight', () => {
 			name: 'React Redux',
 			useStore: useReactReduxStore,
 			StoreProvider: ReactReduxStoreProvider,
-			createStore: createReactReduxStore,
 		},
 	]
-	stateManagementOptions.forEach(({ name, useStore, StoreProvider, createStore }) => {
+	stateManagementOptions.forEach(({ name, useStore, StoreProvider }) => {
 		describe(`with ${name}`, () => {
 			const testee = StoreProvider ? (
-				<StoreProvider store={createStore()}>
+				<StoreProvider>
 					<PokemonFight useStore={useStore} />
 				</StoreProvider>
 			) : (

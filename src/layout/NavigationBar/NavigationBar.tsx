@@ -1,7 +1,7 @@
 import { Col, Menu, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PokemonFight } from '../../pokemon/components/PokemonFight/PokemonFight'
-import { reactReduxStore, ReactReduxStoreProvider, useReactReduxStore } from '../../pokemon/hooks/useReactReduxStore'
+import { ReactReduxStoreProvider, useReactReduxStore } from '../../pokemon/hooks/useReactReduxStore'
 import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
 import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
 import { Placeholder } from '../Placeholder/Placeholder'
@@ -30,7 +30,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
 		path: '/react-redux',
 		label: 'React Redux',
 		content: (
-			<ReactReduxStoreProvider key={'React Redux'} store={reactReduxStore}>
+			<ReactReduxStoreProvider key={'React Redux'}>
 				<PokemonFight useStore={useReactReduxStore} />
 			</ReactReduxStoreProvider>
 		),

@@ -1,5 +1,5 @@
-import { PropsWithChildren, useCallback } from 'react'
-import { createStore, Store as ReduxStore } from 'redux'
+import { PropsWithChildren, useCallback, useMemo } from 'react'
+import { createStore } from 'redux'
 import { useSelector, useDispatch, Provider } from 'react-redux'
 import { Pokemon } from '../models/pokemon'
 import { Action, fightReducer, FightState, INITIAL_FIGHT_STATE } from './useUseReducerStore'
@@ -9,18 +9,18 @@ function reducer(state: FightState = INITIAL_FIGHT_STATE, action: Action) {
 	return fightReducer(state, action)
 }
 
-export function createReactReduxStore() {
-	return createStore(reducer)
-}
-
-export const reactReduxStore = createReactReduxStore()
-
 interface ReactReduxStoreProviderProperties extends PropsWithChildren {
 	key?: React.Key | null
-	store: ReduxStore<FightState, Action>
 }
 
-export function ReactReduxStoreProvider({ key, store, children }: ReactReduxStoreProviderProperties) {
+export function ReactReduxStoreProvider({ key, children }: ReactReduxStoreProviderProperties) {
+	/*
+	 * This is probably not a good practice since you generally only want to have one kind
+	 * of store in your app and thus can make it a global instance, but for the sake of this
+	 * demo it is convienent to confine the different store options.
+	 */
+	const store = useMemo(() => createStore(reducer), [])
+
 	return (
 		<Provider key={key} store={store}>
 			{children}
