@@ -1,4 +1,5 @@
 import { useCallback, useReducer } from 'react'
+import { Move } from '../models/move'
 import { Pokemon } from '../models/pokemon'
 import { Store } from '../models/store'
 
@@ -72,7 +73,10 @@ export function useUseReducerStore(): Store {
 			(pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'setPokemon', pokemon1, pokemon2 }),
 			[]
 		),
-		advanceFight: (movePower: number) => dispatch({ type: 'advance', movePower }),
-		resetFight: (pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'reset', pokemon1, pokemon2 }),
+		makeMove: useCallback((move: Move) => dispatch({ type: 'advance', movePower: move.pp }), []),
+		resetFight: useCallback(
+			(pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch({ type: 'reset', pokemon1, pokemon2 }),
+			[]
+		),
 	}
 }

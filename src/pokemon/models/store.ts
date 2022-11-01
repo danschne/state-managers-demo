@@ -1,3 +1,4 @@
+import { Move } from './move'
 import { Pokemon } from './pokemon'
 
 export interface Store {
@@ -6,6 +7,6 @@ export interface Store {
 	setPokemon: (pokemon1?: Pokemon, pokemon2?: Pokemon) => void
 	isPokemon1sTurn: boolean
 	pokemon1HasWon: boolean
-	advanceFight: (movePower: number) => void
+	makeMove: (move: Move) => void
 	resetFight: (pokemon1?: Pokemon, pokemon2?: Pokemon) => void
 }

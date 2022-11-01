@@ -36,10 +36,10 @@ describe('PokemonFight', () => {
 		describe(`with ${name}`, () => {
 			const testee = StoreProvider ? (
 				<StoreProvider>
-					<PokemonFight useStore={useStore} />
+					<PokemonFight useStore={useStore} versusAi={false} />
 				</StoreProvider>
 			) : (
-				<PokemonFight useStore={useStore} />
+				<PokemonFight useStore={useStore} versusAi={false} />
 			)
 
 			it('should render the fight pikachu vs. squirtle', async () => {

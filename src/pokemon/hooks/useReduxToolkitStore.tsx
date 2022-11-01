@@ -4,6 +4,7 @@ import { useSelector, useDispatch, Provider } from 'react-redux'
 import { Pokemon } from '../models/pokemon'
 import { advanceFight, FightState, INITIAL_FIGHT_STATE } from './useUseReducerStore'
 import { Store } from '../models/store'
+import { Move } from '../models/move'
 
 const setPokemon = createAction<{ pokemon1?: Pokemon; pokemon2?: Pokemon }>('setPokemon')
 const advance = createAction<number>('advance')
@@ -30,7 +31,7 @@ export function ReduxToolkitStoreProvider({ children }: PropsWithChildren) {
 	/*
 	 * This is probably not a good practice since you generally only want to have one kind
 	 * of store in your app and thus can make it a global instance, but for the sake of this
-	 * demo it is convienent to confine the different store options.
+	 * demo it is convenient to confine the different store options.
 	 */
 	const store = useMemo(() => configureStore({ reducer }), [])
 
@@ -47,7 +48,10 @@ export function useReduxToolkitStore(): Store {
 			(pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch(setPokemon({ pokemon1, pokemon2 })),
 			[dispatch]
 		),
-		advanceFight: (movePower: number) => dispatch(advance(movePower)),
-		resetFight: (pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch(reset({ pokemon1, pokemon2 })),
+		makeMove: useCallback((move: Move) => dispatch(advance(move.pp)), [dispatch]),
+		resetFight: useCallback(
+			(pokemon1?: Pokemon, pokemon2?: Pokemon) => dispatch(reset({ pokemon1, pokemon2 })),
+			[dispatch]
+		),
 	}
 }

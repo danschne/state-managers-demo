@@ -1,7 +1,7 @@
 import { Button, Col, Row } from 'antd'
 import { useEffect, useState } from 'react'
 import { useInitializePokemon } from '../../hooks/useInitializePokemon'
-import { Move } from '../../models/move'
+import { usePlayVersusAi } from '../../hooks/usePlayVersusAi'
 import { Store } from '../../models/store'
 import { get2RandomPokemon } from '../../services/pokemonService'
 import { FightResultModal } from '../FightResultModal/FightResultModal'
@@ -9,22 +9,17 @@ import { PokemonCard } from '../PokemonCard/PokemonCard'
 
 interface PokemonFightProperties {
 	useStore: () => Store
+	versusAi?: boolean
 }
 
-export function PokemonFight({ useStore }: PokemonFightProperties) {
-	const { pokemon1, pokemon2, setPokemon, isPokemon1sTurn, pokemon1HasWon, advanceFight, resetFight } = useStore()
+export function PokemonFight({ useStore, versusAi = true }: PokemonFightProperties) {
+	const { pokemon1, pokemon2, setPokemon, isPokemon1sTurn, pokemon1HasWon, makeMove, resetFight } = useStore()
 	const [isFightResultModalVisible, setIsFightResultModalVisible] = useState(false)
-
-	function makeMove(move: Move) {
-		advanceFight(move.pp)
-	}
 
 	async function setUpNewFight() {
 		const [randomPokemon1, randomPokemon2] = await get2RandomPokemon()
 		resetFight(randomPokemon1, randomPokemon2)
 	}
-
-	useInitializePokemon(setPokemon)
 
 	useEffect(() => {
 		const fightIsOver = pokemon1?.currentHp === 0 || pokemon2?.currentHp === 0
@@ -32,6 +27,16 @@ export function PokemonFight({ useStore }: PokemonFightProperties) {
 			setIsFightResultModalVisible(true)
 		}
 	}, [pokemon1, pokemon2])
+
+	useInitializePokemon(setPokemon)
+
+	usePlayVersusAi({
+		isActivated: versusAi,
+		pokemon1,
+		pokemon2,
+		isPokemon1sTurn,
+		makeMove,
+	})
 
 	return (
 		<>
