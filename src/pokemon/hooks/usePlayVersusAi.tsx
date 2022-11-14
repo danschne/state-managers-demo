@@ -32,7 +32,7 @@ export function usePlayVersusAi({
 					content: <MoveInfoMessage pokemon={pokemon2} move={move} />,
 					duration: 1.5,
 					style: {
-						marginTop: '40vh',
+						marginTop: '30vh',
 					},
 				})
 				.then(() => makeMove(move))
