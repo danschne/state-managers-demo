@@ -12,8 +12,8 @@ const reset = createAction<{ pokemon1?: Pokemon; pokemon2?: Pokemon }>('reset')
 
 const reducer = createReducer(INITIAL_FIGHT_STATE, (builder) => {
 	builder
-		// State can be modified in a mutable manner, because immer.js is used under the hood.
 		.addCase(setPokemon, (state, action) => {
+			// State can be modified in a mutable manner, because Immer is used under the hood.
 			state.pokemon1 = action.payload.pokemon1
 			state.pokemon2 = action.payload.pokemon2
 		})
@@ -31,7 +31,7 @@ export function ReduxToolkitStoreProvider({ children }: PropsWithChildren) {
 	/*
 	 * This is probably not a good practice since you generally only want to have one kind
 	 * of store in your app and thus can make it a global instance, but for the sake of this
-	 * demo it is convenient to confine the different store options.
+	 * demo it is convenient to confine the different state management options.
 	 */
 	const store = useMemo(() => configureStore({ reducer }), [])
 
