@@ -40,7 +40,7 @@ describe('PokemonFight', () => {
 			StoreProvider: EasyPeasyStoreProvider,
 		},
 		{ name: 'Zustand', useStore: useZustandStore },
-		{ name: 'Hookstate', useStore: useHookstateStore },
+		// { name: 'Hookstate', useStore: useHookstateStore },
 	]
 	stateManagementOptions.forEach(({ name, useStore, StoreProvider }) => {
 		describe(`with ${name}`, () => {
