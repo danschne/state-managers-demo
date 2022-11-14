@@ -5,6 +5,7 @@ import { ReactReduxStoreProvider, useReactReduxStore } from '../../hooks/useReac
 import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../hooks/useReduxToolkitStore'
 import { useUseReducerStore } from '../../hooks/useUseReducerStore'
 import { useUseStateStore } from '../../hooks/useUseStateStore'
+import { useZustandStore } from '../../hooks/useZustandStore'
 import { Pokemon } from '../../models/pokemon'
 import { get2RandomPokemon } from '../../services/pokemonService'
 import { pikachu, squirtle } from '../../testData/testPokemon'
@@ -37,6 +38,7 @@ describe('PokemonFight', () => {
 			useStore: useEasyPeasyStore,
 			StoreProvider: EasyPeasyStoreProvider,
 		},
+		{ name: 'Zustand', useStore: useZustandStore },
 	]
 	stateManagementOptions.forEach(({ name, useStore, StoreProvider }) => {
 		describe(`with ${name}`, () => {

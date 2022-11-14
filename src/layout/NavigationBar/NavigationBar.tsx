@@ -6,6 +6,7 @@ import { ReactReduxStoreProvider, useReactReduxStore } from '../../pokemon/hooks
 import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../pokemon/hooks/useReduxToolkitStore'
 import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
 import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
+import { useZustandStore } from '../../pokemon/hooks/useZustandStore'
 import { Placeholder } from '../Placeholder/Placeholder'
 import styles from './NavigationBar.module.scss'
 
@@ -58,8 +59,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	{
 		path: '/zustand',
 		label: 'Zustand',
-		// https://github.com/pmndrs/zustand
-		content: <Placeholder text='Zustand' />,
+		content: <PokemonFight useStore={useZustandStore} />,
 	},
 	{
 		path: '/hookstate',
