@@ -2,6 +2,7 @@ import { Col, Menu, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PokemonFight } from '../../pokemon/components/PokemonFight/PokemonFight'
 import { EasyPeasyStoreProvider, useEasyPeasyStore } from '../../pokemon/hooks/useEasyPeasyStore'
+import { useHookstateStore } from '../../pokemon/hooks/useHookstateStore'
 import { ReactReduxStoreProvider, useReactReduxStore } from '../../pokemon/hooks/useReactReduxStore'
 import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../pokemon/hooks/useReduxToolkitStore'
 import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
@@ -64,8 +65,7 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	{
 		path: '/hookstate',
 		label: 'Hookstate',
-		// https://hookstate.js.org/
-		content: <Placeholder text='Hookstate' />,
+		content: <PokemonFight useStore={useHookstateStore} />,
 	},
 	{
 		path: '/jotai',
