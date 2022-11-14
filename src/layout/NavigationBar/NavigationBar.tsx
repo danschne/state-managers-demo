@@ -1,6 +1,7 @@
 import { Col, Menu, Row } from 'antd'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { PokemonFight } from '../../pokemon/components/PokemonFight/PokemonFight'
+import { EasyPeasyStoreProvider, useEasyPeasyStore } from '../../pokemon/hooks/useEasyPeasyStore'
 import { ReactReduxStoreProvider, useReactReduxStore } from '../../pokemon/hooks/useReactReduxStore'
 import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../pokemon/hooks/useReduxToolkitStore'
 import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
@@ -48,8 +49,11 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	{
 		path: '/easy-peasy',
 		label: 'Easy Peasy',
-		// https://easy-peasy.dev/
-		content: <Placeholder text='Easy Peasy' />,
+		content: (
+			<EasyPeasyStoreProvider>
+				<PokemonFight useStore={useEasyPeasyStore} />
+			</EasyPeasyStoreProvider>
+		),
 	},
 	{
 		path: '/zustand',

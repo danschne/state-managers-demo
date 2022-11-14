@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { EasyPeasyStoreProvider, useEasyPeasyStore } from '../../hooks/useEasyPeasyStore'
 import { ReactReduxStoreProvider, useReactReduxStore } from '../../hooks/useReactReduxStore'
 import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../hooks/useReduxToolkitStore'
 import { useUseReducerStore } from '../../hooks/useUseReducerStore'
@@ -30,6 +31,11 @@ describe('PokemonFight', () => {
 			name: 'Redux Toolkit',
 			useStore: useReduxToolkitStore,
 			StoreProvider: ReduxToolkitStoreProvider,
+		},
+		{
+			name: 'Easy Peasy',
+			useStore: useEasyPeasyStore,
+			StoreProvider: EasyPeasyStoreProvider,
 		},
 	]
 	stateManagementOptions.forEach(({ name, useStore, StoreProvider }) => {
