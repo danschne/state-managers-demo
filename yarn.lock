@@ -1763,12 +1763,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hookstate/core@npm:^3.0.13":
-  version: 3.0.13
-  resolution: "@hookstate/core@npm:3.0.13"
+"@hookstate/core@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@hookstate/core@npm:4.0.0"
   peerDependencies:
-    react: ^16.8.6 || ^17.0.0
-  checksum: 8fe0b8feaf157becb6525059f80df31ebfe32dc83e524a724c5e37898ad823e18440dd4bb7562c5fb2ac624be6b3a74816f47c53f3179924ef409c46f4e6d10b
+    react: ^16.8.6 || ^17.0.0 || ^18.0.0
+  checksum: 6e390da1868700e71d22fce5c59e3d9e76b5f7e5d4230b3138f96d712b982104cd3ffa75978040e044c92d0f4bfa2fa373c21f565487366139eaded106bc51b7
   languageName: node
   linkType: hard
 
@@ -12268,7 +12268,7 @@ __metadata:
     "@babel/core": ^7.18.10
     "@babel/plugin-syntax-flow": ^7.18.6
     "@babel/plugin-transform-react-jsx": ^7.18.10
-    "@hookstate/core": ^3.0.13
+    "@hookstate/core": ^4.0.0
     "@redux-devtools/core": ^3.13.1
     "@reduxjs/toolkit": ^1.8.6
     "@testing-library/dom": ^8.17.1

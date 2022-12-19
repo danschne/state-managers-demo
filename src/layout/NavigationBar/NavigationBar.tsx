@@ -8,7 +8,6 @@ import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../pokemon/h
 import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
 import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
 import { useZustandStore } from '../../pokemon/hooks/useZustandStore'
-import { Placeholder } from '../Placeholder/Placeholder'
 import { RecoilRoot } from 'recoil'
 import styles from './NavigationBar.module.scss'
 import { useRecoilStore } from '../../pokemon/hooks/useRecoilStore'
@@ -69,7 +68,6 @@ export const MENU_ENTRIES: MenuEntry[] = [
 		path: '/hookstate',
 		label: 'Hookstate',
 		content: <PokemonFight useStore={useHookstateStore} />,
-		// content: <Placeholder text='fuck hookstate' />,
 	},
 	{
 		path: '/recoil',

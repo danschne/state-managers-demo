@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.18.10"],\
             ["@babel/plugin-syntax-flow", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.18.6"],\
             ["@babel/plugin-transform-react-jsx", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.18.10"],\
-            ["@hookstate/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:3.0.13"],\
+            ["@hookstate/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.0.0"],\
             ["@redux-devtools/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:3.13.1"],\
             ["@reduxjs/toolkit", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:1.8.6"],\
             ["@testing-library/dom", "npm:8.17.1"],\
@@ -3326,17 +3326,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@hookstate/core", [\
-        ["npm:3.0.13", {\
-          "packageLocation": "./.yarn/cache/@hookstate-core-npm-3.0.13-b5478e2071-8fe0b8feaf.zip/node_modules/@hookstate/core/",\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/@hookstate-core-npm-4.0.0-6ea4298015-6e390da186.zip/node_modules/@hookstate/core/",\
           "packageDependencies": [\
-            ["@hookstate/core", "npm:3.0.13"]\
+            ["@hookstate/core", "npm:4.0.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:3.0.13", {\
-          "packageLocation": "./.yarn/__virtual__/@hookstate-core-virtual-e65ef5ad2e/0/cache/@hookstate-core-npm-3.0.13-b5478e2071-8fe0b8feaf.zip/node_modules/@hookstate/core/",\
+        ["virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/@hookstate-core-virtual-4d3fe88e71/0/cache/@hookstate-core-npm-4.0.0-6ea4298015-6e390da186.zip/node_modules/@hookstate/core/",\
           "packageDependencies": [\
-            ["@hookstate/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:3.0.13"],\
+            ["@hookstate/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.0.0"],\
             ["@types/react", "npm:18.0.17"],\
             ["react", "npm:18.2.0"]\
           ],\
@@ -17178,7 +17178,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.18.10"],\
             ["@babel/plugin-syntax-flow", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.18.6"],\
             ["@babel/plugin-transform-react-jsx", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:7.18.10"],\
-            ["@hookstate/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:3.0.13"],\
+            ["@hookstate/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.0.0"],\
             ["@redux-devtools/core", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:3.13.1"],\
             ["@reduxjs/toolkit", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:1.8.6"],\
             ["@testing-library/dom", "npm:8.17.1"],\

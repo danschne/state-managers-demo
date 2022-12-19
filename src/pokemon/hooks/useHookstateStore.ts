@@ -4,6 +4,7 @@ import { Pokemon } from '../models/pokemon'
 import { Store } from '../models/store'
 import { SetStateAction, useHookstate } from '@hookstate/core'
 
+// TODO: these 'states' cause all kinds of trouble in combination with useEffect()
 export function useHookstateStore(): Store {
 	const pokemon1State = useHookstate<Pokemon | undefined>(undefined)
 	const pokemon2State = useHookstate<Pokemon | undefined>(undefined)
@@ -15,7 +16,8 @@ export function useHookstateStore(): Store {
 			pokemon1State.set(pokemon1)
 			pokemon2State.set(pokemon2)
 		},
-		[pokemon1State, pokemon2State]
+		// [pokemon1State, pokemon2State]
+		[]
 	)
 
 	const makeMove = useCallback(
@@ -30,7 +32,8 @@ export function useHookstateStore(): Store {
 				pokemon1HasWonState.set(true)
 			}
 		},
-		[isPokemon1sTurnState, pokemon1State, pokemon2State, pokemon1HasWonState]
+		// [isPokemon1sTurnState, pokemon1State, pokemon2State, pokemon1HasWonState]
+		[]
 	)
 
 	const resetFight = useCallback(
@@ -39,7 +42,8 @@ export function useHookstateStore(): Store {
 			isPokemon1sTurnState.set(true)
 			pokemon1HasWonState.set(false)
 		},
-		[setPokemon, isPokemon1sTurnState, pokemon1HasWonState]
+		// [setPokemon, isPokemon1sTurnState, pokemon1HasWonState]
+		[]
 	)
 
 	function setCurrentHp(hp: number, setPokemon: (pokemon: SetStateAction<Pokemon | undefined>) => void) {
@@ -54,11 +58,11 @@ export function useHookstateStore(): Store {
 	}
 
 	return {
-		pokemon1: pokemon1State.value,
-		pokemon2: pokemon2State.value,
-		setPokemon,
+		pokemon1: pokemon1State.value as Pokemon,
+		pokemon2: pokemon2State.value as Pokemon,
 		isPokemon1sTurn: isPokemon1sTurnState.value,
 		pokemon1HasWon: pokemon1HasWonState.value,
+		setPokemon,
 		makeMove,
 		resetFight,
 	}
