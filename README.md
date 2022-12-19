@@ -49,4 +49,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 - Update react-router and try out new data fetching mechanism
 - Try out data-fetching with React Query (https://react-query-v3.tanstack.com/) (Toggle between this and react-router mechanism? Or is it not mutually exclusive?)
-- Try out <Suspense />
+- Try out <Suspense /> - (how) does this correlate to useTransition()?

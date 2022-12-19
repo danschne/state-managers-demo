@@ -52,9 +52,9 @@ export function useUseStateStore(): Store {
 	return {
 		pokemon1,
 		pokemon2,
-		setPokemon,
 		isPokemon1sTurn,
 		pokemon1HasWon,
+		setPokemon,
 		makeMove,
 		resetFight,
 	}

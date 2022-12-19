@@ -60,6 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.6.0"],\
             ["husky", "npm:8.0.1"],\
             ["identity-obj-proxy", "npm:3.0.0"],\
+            ["jotai", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:1.11.2"],\
             ["lodash", "npm:4.17.21"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
@@ -67,6 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:8.0.4"],\
             ["react-router-dom", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:6.3.0"],\
             ["react-scripts", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:5.0.1"],\
+            ["recoil", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:0.7.6"],\
             ["redux", "npm:4.2.0"],\
             ["sass", "npm:1.54.4"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
@@ -9588,6 +9590,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["hamt_plus", [\
+        ["npm:1.0.2", {\
+          "packageLocation": "./.yarn/cache/hamt_plus-npm-1.0.2-67a52ee1df-af26ea32db.zip/node_modules/hamt_plus/",\
+          "packageDependencies": [\
+            ["hamt_plus", "npm:1.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["handle-thing", [\
         ["npm:2.0.1", {\
           "packageLocation": "./.yarn/cache/handle-thing-npm-2.0.1-084baca59e-68071f3130.zip/node_modules/handle-thing/",\
@@ -11224,6 +11235,68 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.7.1"],\
             ["merge-stream", "npm:2.0.0"],\
             ["supports-color", "npm:8.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["jotai", [\
+        ["npm:1.11.2", {\
+          "packageLocation": "./.yarn/cache/jotai-npm-1.11.2-11c68241bd-3cdd7cf31d.zip/node_modules/jotai/",\
+          "packageDependencies": [\
+            ["jotai", "npm:1.11.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:1.11.2", {\
+          "packageLocation": "./.yarn/__virtual__/jotai-virtual-83b7ddc379/0/cache/jotai-npm-1.11.2-11c68241bd-3cdd7cf31d.zip/node_modules/jotai/",\
+          "packageDependencies": [\
+            ["jotai", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:1.11.2"],\
+            ["@babel/core", "npm:7.18.10"],\
+            ["@babel/template", null],\
+            ["@types/babel__core", null],\
+            ["@types/babel__template", null],\
+            ["@types/jotai-immer", null],\
+            ["@types/jotai-optics", null],\
+            ["@types/jotai-redux", null],\
+            ["@types/jotai-tanstack-query", null],\
+            ["@types/jotai-urql", null],\
+            ["@types/jotai-valtio", null],\
+            ["@types/jotai-xstate", null],\
+            ["@types/jotai-zustand", null],\
+            ["@types/react", "npm:18.0.17"],\
+            ["jotai-immer", null],\
+            ["jotai-optics", null],\
+            ["jotai-redux", null],\
+            ["jotai-tanstack-query", null],\
+            ["jotai-urql", null],\
+            ["jotai-valtio", null],\
+            ["jotai-xstate", null],\
+            ["jotai-zustand", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@babel/core",\
+            "@babel/template",\
+            "@types/babel__core",\
+            "@types/babel__template",\
+            "@types/jotai-immer",\
+            "@types/jotai-optics",\
+            "@types/jotai-redux",\
+            "@types/jotai-tanstack-query",\
+            "@types/jotai-urql",\
+            "@types/jotai-valtio",\
+            "@types/jotai-xstate",\
+            "@types/jotai-zustand",\
+            "@types/react",\
+            "jotai-immer",\
+            "jotai-optics",\
+            "jotai-redux",\
+            "jotai-tanstack-query",\
+            "jotai-urql",\
+            "jotai-valtio",\
+            "jotai-xstate",\
+            "jotai-zustand",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16071,6 +16144,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["recoil", [\
+        ["npm:0.7.6", {\
+          "packageLocation": "./.yarn/cache/recoil-npm-0.7.6-6f8de04e3d-2b31dd29a7.zip/node_modules/recoil/",\
+          "packageDependencies": [\
+            ["recoil", "npm:0.7.6"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:0.7.6", {\
+          "packageLocation": "./.yarn/__virtual__/recoil-virtual-fd874e3c84/0/cache/recoil-npm-0.7.6-6f8de04e3d-2b31dd29a7.zip/node_modules/recoil/",\
+          "packageDependencies": [\
+            ["recoil", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:0.7.6"],\
+            ["@types/react", "npm:18.0.17"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["@types/react-native", null],\
+            ["hamt_plus", "npm:1.0.2"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:18.2.0"],\
+            ["react-native", null]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react-native",\
+            "@types/react",\
+            "react-dom",\
+            "react-native",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["recursive-readdir", [\
         ["npm:2.2.2", {\
           "packageLocation": "./.yarn/cache/recursive-readdir-npm-2.2.2-7e64fe65fc-a6b22994d7.zip/node_modules/recursive-readdir/",\
@@ -17097,6 +17201,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:4.6.0"],\
             ["husky", "npm:8.0.1"],\
             ["identity-obj-proxy", "npm:3.0.0"],\
+            ["jotai", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:1.11.2"],\
             ["lodash", "npm:4.17.21"],\
             ["prettier", "npm:2.7.1"],\
             ["react", "npm:18.2.0"],\
@@ -17104,6 +17209,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-redux", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:8.0.4"],\
             ["react-router-dom", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:6.3.0"],\
             ["react-scripts", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:5.0.1"],\
+            ["recoil", "virtual:4962b901a716c5f7e65bc5874c28e6b07c10983c0344d70e2a0fa15531778ceebe97d4ee22aed0828587b07363e8c67a1934239deb5d7af2e2dc36365756fc82#npm:0.7.6"],\
             ["redux", "npm:4.2.0"],\
             ["sass", "npm:1.54.4"],\
             ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"],\
