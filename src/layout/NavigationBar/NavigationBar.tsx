@@ -9,7 +9,9 @@ import { useUseReducerStore } from '../../pokemon/hooks/useUseReducerStore'
 import { useUseStateStore } from '../../pokemon/hooks/useUseStateStore'
 import { useZustandStore } from '../../pokemon/hooks/useZustandStore'
 import { Placeholder } from '../Placeholder/Placeholder'
+import { RecoilRoot } from 'recoil'
 import styles from './NavigationBar.module.scss'
+import { useRecoilStore } from '../../pokemon/hooks/useRecoilStore'
 
 const LOGO = '🕺💃❤🎓'
 
@@ -65,19 +67,22 @@ export const MENU_ENTRIES: MenuEntry[] = [
 	{
 		path: '/hookstate',
 		label: 'Hookstate',
-		content: <PokemonFight useStore={useHookstateStore} />,
-	},
-	{
-		path: '/jotai',
-		label: 'Jotai',
-		// https://jotai.org/
-		content: <Placeholder text='Jotai' />,
+		// content: <PokemonFight useStore={useHookstateStore} />,
+		content: <Placeholder text='fuck hookstate' />,
 	},
 	{
 		path: '/recoil',
 		label: 'Recoil',
-		// https://recoiljs.org/
-		content: <Placeholder text='Recoil' />,
+		content: (
+			<RecoilRoot>
+				<PokemonFight useStore={useRecoilStore} />
+			</RecoilRoot>
+		),
+	},
+	{
+		path: '/jotai',
+		label: 'Jotai',
+		content: <Placeholder text='Jotai' />,
 	},
 ]
 
