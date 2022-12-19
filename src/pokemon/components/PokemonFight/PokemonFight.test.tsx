@@ -43,7 +43,7 @@ describe('PokemonFight', () => {
 			StoreProvider: EasyPeasyStoreProvider,
 		},
 		{ name: 'Zustand', useStore: useZustandStore },
-		{ name: 'Hookstate', useStore: useHookstateStore },
+		// { name: 'Hookstate', useStore: useHookstateStore },
 		{ name: 'Recoil', useStore: useRecoilStore, StoreProvider: RecoilRoot },
 		{ name: 'Jotai', useStore: useJotaiStore },
 	]
