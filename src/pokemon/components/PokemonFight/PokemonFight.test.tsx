@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { RecoilRoot } from 'recoil'
 import { EasyPeasyStoreProvider, useEasyPeasyStore } from '../../hooks/useEasyPeasyStore'
 import { useHookstateStore } from '../../hooks/useHookstateStore'
+import { useJotaiStore } from '../../hooks/useJotaiStore'
 import { ReactReduxStoreProvider, useReactReduxStore } from '../../hooks/useReactReduxStore'
 import { useRecoilStore } from '../../hooks/useRecoilStore'
 import { ReduxToolkitStoreProvider, useReduxToolkitStore } from '../../hooks/useReduxToolkitStore'
@@ -44,6 +45,7 @@ describe('PokemonFight', () => {
 		{ name: 'Zustand', useStore: useZustandStore },
 		// { name: 'Hookstate', useStore: useHookstateStore },
 		{ name: 'Recoil', useStore: useRecoilStore, StoreProvider: RecoilRoot },
+		{ name: 'Jotai', useStore: useJotaiStore },
 	]
 	stateManagementOptions.forEach(({ name, useStore, StoreProvider }) => {
 		describe(`with ${name}`, () => {

@@ -18,7 +18,7 @@ const fightState = atom({ key: 'fight', default: INITIAL_FIGHT_STATE })
 const pokemon1State = selector({ key: 'pokemon1', get: ({ get }) => get(fightState).pokemon1 })
 
 export function useRecoilStore(): Store {
-	const [fight, setFight] = useRecoilState(fightState)
+	const [fight, setFight] = useRecoilState(fightState) // there are also write-/read-only variants
 
 	const setPokemon = useCallback(
 		(pokemon1?: Pokemon, pokemon2?: Pokemon) => setFight((fight) => ({ ...fight, pokemon1, pokemon2 })),

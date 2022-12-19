@@ -3,22 +3,21 @@ import { Move } from '../models/move'
 import { Pokemon } from '../models/pokemon'
 import { Store } from '../models/store'
 import { advanceFight, INITIAL_FIGHT_STATE } from './useUseReducerStore'
-import { atom, selector, useRecoilState, useRecoilValue } from 'recoil'
+import { atom, useAtom } from 'jotai'
 
+// https://jotai.org/docs/basics/comparison
+
+const fightState = atom(INITIAL_FIGHT_STATE)
 /*
- * In addition to React's useEffect(), atoms can also have effects. Since these are defined
- * outside of components, use casese would be e.g. logging something on each state change.
- */
-const fightState = atom({ key: 'fight', default: INITIAL_FIGHT_STATE })
-/*
- * You can select parts of other atoms. This can even be asynchronous operations (e.g.
+ * You can select (computed) parts of other atoms. This can even be asynchronous operations (e.g.
  * fetching something from a database) - then you should wrap the corresponding component
- * in <React.Suspense> (and an error boundary) or use 'useRecoilValueLoadable()'.
+ * in <React.Suspense> (and an error boundary) or use 'loadable()'.
+ * You can also define a setter here (even an asynchronous one!)
  */
-const pokemon1State = selector({ key: 'pokemon1', get: ({ get }) => get(fightState).pokemon1 })
+const pokemon1State = atom((get) => get(fightState).pokemon1)
 
-export function useRecoilStore(): Store {
-	const [fight, setFight] = useRecoilState(fightState)
+export function useJotaiStore(): Store {
+	const [fight, setFight] = useAtom(fightState) // there are also write-/read-only variants
 
 	const setPokemon = useCallback(
 		(pokemon1?: Pokemon, pokemon2?: Pokemon) => setFight((fight) => ({ ...fight, pokemon1, pokemon2 })),
@@ -35,7 +34,7 @@ export function useRecoilStore(): Store {
 
 	return {
 		...fight,
-		pokemon1: useRecoilValue(pokemon1State), // showcase selectors
+		pokemon1: useAtom(pokemon1State)[0], // showcase derived atom
 		setPokemon,
 		makeMove,
 		resetFight,
