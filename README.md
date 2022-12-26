@@ -48,5 +48,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Further Steps
 
 - Update react-router and try out new data fetching mechanism
-- Try out <Suspense /> in combination with useTransition()?
+- Try out <Suspense /> (in combination with useTransition()?)
 - Try out data-fetching with React Query (https://react-query-v3.tanstack.com/) (Toggle between this and react-router mechanism? Or is it not mutually exclusive?)
+- Implement light theme with setting (use light or dark) and try out auto-detect system preference feature (test on Windows, (Mac?) and Android) with a setting (use system)
+- Make it responsive (should work nicely on a standard desktop, a standard tablet and my phone)
