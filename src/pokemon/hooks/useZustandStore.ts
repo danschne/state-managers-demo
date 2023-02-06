@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { Move } from '../models/move'
 import { Pokemon } from '../models/pokemon'
 import { Store } from '../models/store'
-import create from 'zustand'
+import { create } from 'zustand'
 import { advanceFight, FightState, INITIAL_FIGHT_STATE } from './useUseReducerStore'
 
 interface ZustandStore {

@@ -1,7 +1,6 @@
-import { message } from 'antd'
+import { MessageType } from 'antd/es/message/interface'
 import _ from 'lodash'
 import { useEffect } from 'react'
-import { MoveInfoMessage } from '../atoms/MoveInfoMessage/MoveInfoMessage'
 import { Move } from '../models/move'
 import { Pokemon } from '../models/pokemon'
 
@@ -10,6 +9,7 @@ interface UsePlayVersusAiProperties {
 	pokemon1?: Pokemon
 	pokemon2?: Pokemon
 	isPokemon1sTurn: boolean
+	showMoveMessage: (move: Move) => MessageType
 	makeMove: (move: Move) => void
 }
 
@@ -18,6 +18,7 @@ export function usePlayVersusAi({
 	pokemon1,
 	pokemon2,
 	isPokemon1sTurn,
+	showMoveMessage,
 	makeMove,
 }: UsePlayVersusAiProperties) {
 	useEffect(() => {
@@ -26,20 +27,10 @@ export function usePlayVersusAi({
 		}
 
 		const move = getRandomMove(pokemon2)
-		const timeout = setTimeout(() => {
-			message
-				.open({
-					content: <MoveInfoMessage pokemon={pokemon2} move={move} />,
-					duration: 1.5,
-					style: {
-						marginTop: '30vh',
-					},
-				})
-				.then(() => makeMove(move))
-		}, 1000)
+		const timeout = setTimeout(() => showMoveMessage(move).then(() => makeMove(move)), 1000)
 
 		return () => clearTimeout(timeout)
-	}, [isActivated, pokemon1, pokemon2, isPokemon1sTurn, makeMove])
+	}, [isActivated, pokemon1, pokemon2, isPokemon1sTurn, makeMove, showMoveMessage])
 }
 
 function fightIsOver(pokemon1?: Pokemon, pokemon2?: Pokemon) {

@@ -16,7 +16,7 @@ export function FightResultModal({ isVisible, onClose, onNewFight, playerHasWon 
 	return (
 		<Modal
 			title='Result'
-			visible={isVisible}
+			open={isVisible}
 			onCancel={onClose}
 			footer={[
 				<Button key='back' onClick={onClose}>
